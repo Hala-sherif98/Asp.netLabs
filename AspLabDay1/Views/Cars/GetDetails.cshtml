@@ -1,0 +1,31 @@
+﻿
+@model Car;
+
+@{
+    var car = Model;
+    var type = Context.Request.Query["type"];
+}
+
+<div>
+            <p>@car.ToString()</p><br>
+             <figure class = "figure">
+                    <img src = "car.Image" class="figure-img img-fluid rounded" alt="@($"{car.Model} from {car.Manufacturer}")">
+                    <figcaption class="figure-caption">
+                    @($"{@car.Model} from {@car.Manufacturer}")
+                    </figcaption>
+                    </figure>
+                @if (type == "list")
+                {
+                    <p>i come from list</p>
+
+                }
+                else
+                {
+                   <p>i come from table</p>
+                }
+
+
+            
+            
+</div>
+

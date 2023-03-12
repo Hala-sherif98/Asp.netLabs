@@ -1,0 +1,63 @@
+﻿@model List<Car>;
+
+@{
+    var cars = Model;
+    
+
+}
+
+
+
+
+<ul>
+    @foreach (var car in cars)
+    {
+        <li>
+            @car.ToString()<br>
+            <figure class = "figure">
+                <img src = "car.Image" class="figure-img img-fluid rounded" alt="@($"{car.Model} from {car.Manufacturer}")">
+                <figcaption class="figure-caption">
+                    @($"{car.Model} from {car.Manufacturer}")
+                </figcaption>
+                </figure>
+               <a href="/Cars/GetDetails?CarModel=@car.Model&type=list">Details</a>
+
+
+        </li>
+        
+
+    }
+</ul>
+
+
+<table class="table">
+    <tr>
+
+        <th>Name</th>
+        <th>Usage Duration</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Action</th>
+
+
+        
+        @foreach(var car in cars)
+        {
+
+            <tr>
+                    <td> @($"{car.Model} from {car.Manufacturer}")</td>
+                    <td>@($"{((DateTime.Now).Year) - (car.FirstUseDate.Year)} years")</td>
+                    <td>@(Html.Raw(car.HtmlDescription))</td>
+                        <td> <figure class = "figure">
+                    <img src = "car.Image" class="figure-img img-fluid rounded" alt="@($"{car.Model} from {car.Manufacturer}")">
+                    <figcaption class="figure-caption">
+                            @($"{car.Model} from {car.Manufacturer}")
+                    </figcaption>
+                    </figure></td>
+                        <td><a href="/Cars/GetDetails?CarModel=@car.Model&type=table">Details</a></td>
+
+            </tr>
+            
+        }
+    
+</table>
