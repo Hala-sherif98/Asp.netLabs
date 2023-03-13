@@ -1,0 +1,17 @@
+﻿
+@model List<Ticket>;
+
+@{
+    var tickets= Model;
+}
+<ul>
+    @foreach (var ticket in tickets)
+    {
+            <li>@ticket.Description , @ticket.CreatedDate , @ticket.IsClosed, @ticket.Severity</li>
+    }
+
+    <button class="btn btn-secondary"><a class="text-white" href="/Tickets/AddToForm">Add Ticket</a></button>
+   
+
+ 
+</ul>

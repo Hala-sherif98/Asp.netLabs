@@ -1,0 +1,25 @@
+﻿@model TicketVM;
+@{
+    var SeverityOptions = Html.GetEnumSelectList<Severity>();
+}
+
+<form asp-action="AddAction" method="post"> 
+
+    <div class="form-group">
+    <label asp-for = "Description"></label>
+    <input class="form-control" asp-for="Description"/>
+    </div>
+
+    <div class="form-group">
+    <label asp-for = "IsClosed"></label>
+    <input  asp-for="IsClosed"/>
+    </div>
+
+     <div class="form-group">
+    <label asp-for = "Severity"></label>
+    <select  asp-for="Severity" asp-items="SeverityOptions"></select>
+    </div>
+
+     <button class="btn btn-success" >Sumbit</button>
+
+</form>
