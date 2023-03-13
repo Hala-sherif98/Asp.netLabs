@@ -2,13 +2,7 @@
 
 @{
     var cars = Model;
-    
-
 }
-
-
-
-
 <ul>
     @foreach (var car in cars)
     {
@@ -21,11 +15,7 @@
                 </figcaption>
                 </figure>
                <a href="/Cars/GetDetails?CarModel=@car.Model&type=list">Details</a>
-
-
         </li>
-        
-
     }
 </ul>
 
@@ -38,12 +28,8 @@
         <th>Description</th>
         <th>Image</th>
         <th>Action</th>
-
-
-        
         @foreach(var car in cars)
         {
-
             <tr>
                     <td> @($"{car.Model} from {car.Manufacturer}")</td>
                     <td>@($"{((DateTime.Now).Year) - (car.FirstUseDate.Year)} years")</td>
@@ -56,8 +42,7 @@
                     </figure></td>
                         <td><a href="/Cars/GetDetails?CarModel=@car.Model&type=table">Details</a></td>
 
-            </tr>
-            
+            </tr>    
         }
     
 </table>
