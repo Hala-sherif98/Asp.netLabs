@@ -1,0 +1,33 @@
+﻿@model List<Ticket>;
+
+@{
+    var tickets = Model;
+}
+<a asp-action="Form">Add a new ticket</a>
+
+<div class="container">
+
+    @foreach (var ticket in tickets)
+    {
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@ticket.Description</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@ticket.IsClosed</h6>
+                     <h6 class="card-subtitle mb-2 text-muted">@ticket.Severity</h6>
+                      <h6 class="card-subtitle mb-2 text-muted">@ticket.Department.Name</h6>
+
+                           <ul>
+                    @foreach(var developer in ticket.Developers)
+                    {
+                        <li>@developer.FirstName @developer.LastName</li>
+                       
+                    }
+                    
+                        <a href="/Tickets/EditForm/@ticket.Id">Edit</a>
+                        <a href="/Tickets/Delete/@ticket.Id">Delete</a>
+                        
+                </ul> 
+                </div>
+            </div>
+    }
+</div>
