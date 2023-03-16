@@ -1,0 +1,30 @@
+﻿
+
+@using TicketsSystem.BL.ViewModels.Ticket;
+
+@model List<ReadTicket>;
+
+@{
+    var tickets = Model;
+}
+
+
+<div class="container">
+
+    @foreach (var ticket in tickets)
+    {
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@ticket.Id</h5>
+                        <h5 class="card-title">@ticket.DepartmentId</h5>
+                    <h5 class="card-title">@ticket.Description</h5>
+                     <h6 class="card-subtitle mb-2 text-muted">@ticket.Severity</h6>             
+                        <a href="/Tickets/Edit/@ticket.Id">Edit</a>
+                        <a href="/Tickets/Delete/@ticket.Id">Delete</a>
+                          <a href="/Tickets/Details/@ticket.Id">Details</a>
+                        
+
+                </div>
+            </div>
+    }
+</div>
